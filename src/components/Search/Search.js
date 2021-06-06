@@ -87,7 +87,9 @@ const Search = (props) => {
 
   useEffect(() => {
     const getHome = async () => {
-      const response = await axios.get("/profile");
+      const response = await axios.get(
+        "https://travel-booking-2.herokuapp.com/profile"
+      );
       console.log(response.data.home);
       setState((state) => ({ ...state, departureCity: response.data.home }));
     };

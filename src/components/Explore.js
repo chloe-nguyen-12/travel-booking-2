@@ -54,7 +54,9 @@ function Explore(props) {
   });
 
   const shuffleLocations = async () => {
-    const favoriteData = await axios.get("/favorites/getAllFavorites");
+    const favoriteData = await axios.get(
+      "https://travel-booking-2.herokuapp.com/favorites/getAllFavorites"
+    );
     const favoritesArray = favoriteData.data;
     let filteredLocations = allLocations;
     if (favoritesArray.length > 0) {

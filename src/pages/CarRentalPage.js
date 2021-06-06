@@ -22,7 +22,9 @@ const CarRentalPage = () => {
   const [carList, setCarList] = useState();
   useEffect(() => {
     const getCarList = async () => {
-      const response = await axios.get("/carRental");
+      const response = await axios.get(
+        "https://travel-booking-2.herokuapp.com/carRental"
+      );
       setCarList(response.data.carList);
     };
     getCarList();
@@ -30,18 +32,20 @@ const CarRentalPage = () => {
   return (
     <Grid
       container
-      justify='center'
-      alignItems='center'
+      justify="center"
+      alignItems="center"
       xs={8}
-      className={classes.root}>
+      className={classes.root}
+    >
       <CarRentalSearch />
       <CarRentalOptions carList={carList} />
       <Grid
         container
         spacing={8}
-        justify='space-between'
-        alignItems='center'
-        className={classes.carCardContainer}>
+        justify="space-between"
+        alignItems="center"
+        className={classes.carCardContainer}
+      >
         {carList ? carList.map((car) => <CarCard car={car} />) : null}
       </Grid>
     </Grid>

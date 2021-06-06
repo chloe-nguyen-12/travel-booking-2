@@ -18,7 +18,9 @@ const HotelsPage = () => {
 
   useEffect(() => {
     const getHotelList = async () => {
-      const response = await axios.get("./hotels");
+      const response = await axios.get(
+        "https://travel-booking-2.herokuapp.com/hotels"
+      );
       setHotelList(response.data.hotelList);
     };
     getHotelList();

@@ -64,7 +64,10 @@ function ExploreCard(props) {
   const classes = exploreCardStyles(location);
   const [liked, setLike] = useState(alreadyLiked);
   const handleLiked = async () => {
-    await axios.put("/favorites", { location, add: !liked });
+    await axios.put("https://travel-booking-2.herokuapp.com/favorites", {
+      location,
+      add: !liked,
+    });
     setLike((prev) => !prev);
   };
 

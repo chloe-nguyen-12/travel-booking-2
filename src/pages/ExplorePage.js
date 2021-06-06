@@ -8,7 +8,9 @@ const ExplorePage = () => {
 
   useEffect(() => {
     const getFavorites = async () => {
-      const response = await axios.get("/explore");
+      const response = await axios.get(
+        "https://travel-booking-2.herokuapp.com/explore"
+      );
 
       setAllLocations(response.data.locations);
     };

@@ -95,7 +95,9 @@ export default function UserPage() {
   };
   useEffect(() => {
     const getUser = async () => {
-      const user = await axios.get("/profile");
+      const user = await axios.get(
+        "https://travel-booking-2.herokuapp.com/profile"
+      );
       console.log(user.data.favorites);
       setName(user.data.name);
       setEmail(user.data.email);

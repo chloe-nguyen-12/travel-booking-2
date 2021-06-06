@@ -22,7 +22,7 @@ function DropBox() {
       formData.append("profile-picture", acceptedFiles[0]);
       return await axios({
         method: "post",
-        url: "/profile/profile-picture",
+        url: "https://travel-booking-2.herokuapp.com/profile/profile-picture",
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       });
