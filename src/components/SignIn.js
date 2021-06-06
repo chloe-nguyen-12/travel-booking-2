@@ -57,7 +57,7 @@ function SignIn(props) {
       try {
         const resp = await axios.post("/login", userData);
         localStorage.setItem("loggedIn", "true");
-        localStorage.setItem("token", resp.token);
+        localStorage.setItem("token", resp.user.token);
         history.push("/explore");
         props.exit();
       } catch (err) {
