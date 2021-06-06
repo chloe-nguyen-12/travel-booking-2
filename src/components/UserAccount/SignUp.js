@@ -112,7 +112,9 @@ function SignUp(props) {
 
   useEffect(() => {
     const getLocations = async () => {
-      const response = await axios.get("/locations");
+      const response = await axios.get(
+        "https://travel-booking-2.herokuapp.com/locations"
+      );
       const locations = response.data.locations;
       setLocations(locations);
     };
@@ -393,7 +395,8 @@ function SignUp(props) {
   };
 
   const validateEmail = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     return re.test(email.toLowerCase());
   };
@@ -455,7 +458,10 @@ function SignUp(props) {
 
     const sendSignUpRequest = async () => {
       try {
-        const resp = await axios.post("/signup", userData);
+        const resp = await axios.post(
+          "https://travel-booking-2.herokuapp.com/signup",
+          userData
+        );
         localStorage.setItem("loggedIn", "true");
         setPage(false);
       } catch (err) {
@@ -469,7 +475,10 @@ function SignUp(props) {
   const handleAddFavorites = () => {
     const sendFavorites = async () => {
       console.log(favorites);
-      const response = await axios.post("/favorites", { favorites });
+      const response = await axios.post(
+        "https://travel-booking-2.herokuapp.com/favorites",
+        { favorites }
+      );
       history.push("/explore");
       props.exit();
     };
