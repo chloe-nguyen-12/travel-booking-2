@@ -55,7 +55,8 @@ function Explore(props) {
 
   const shuffleLocations = async () => {
     const favoriteData = await axios.get(
-      "https://travel-booking-2.herokuapp.com/favorites/getAllFavorites"
+      "https://travel-booking-2.herokuapp.com/favorites/getAllFavorites",
+      { headers: { Authorization: localStorage.getItem("token") } }
     );
     const favoritesArray = favoriteData.data;
     let filteredLocations = allLocations;
