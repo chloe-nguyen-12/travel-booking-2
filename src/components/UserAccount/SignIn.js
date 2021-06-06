@@ -55,7 +55,10 @@ function SignIn(props) {
 
     const sendSignInRequest = async () => {
       try {
-        const resp = await axios.post("/login", userData);
+        const resp = await axios.post(
+          "https://travel-booking-2.herokuapp.com/login",
+          userData
+        );
         localStorage.setItem("loggedIn", "true");
         history.push("/");
         props.exit();
@@ -71,26 +74,26 @@ function SignIn(props) {
     <div className={classes.container}>
       <Paper elevation={3} className={classes.paper}>
         <CloseModal cb={null} modalContainer={true}></CloseModal>
-        <Grid container direction='column' justify='center' alignItems='center'>
+        <Grid container direction="column" justify="center" alignItems="center">
           {/* TOP TEXT - HEADER */}
 
           <SignInModalHeader
-            title='Sign In'
-            subTitle='Track Prices, organize travel plans and access member-only deals'
+            title="Sign In"
+            subTitle="Track Prices, organize travel plans and access member-only deals"
           />
 
           {/* FORM SECTION */}
 
           <form onSubmit={handleFormSubmit} style={{ width: "100%" }}>
-            <Grid container item xs={12} justify='center' alignItems='center'>
+            <Grid container item xs={12} justify="center" alignItems="center">
               <Grid item xs={8}>
                 <Box mt={4.5}>
                   <TextField
-                    id='Email'
-                    label='Email Address'
-                    variant='outlined'
+                    id="Email"
+                    label="Email Address"
+                    variant="outlined"
                     fullWidth={true}
-                    color='secondary'
+                    color="secondary"
                     onChange={(e) => handleEmailChange(e)}
                   />
                 </Box>
@@ -99,37 +102,39 @@ function SignIn(props) {
               <Grid item xs={8}>
                 <Box mt={2}>
                   <TextField
-                    id='Password'
-                    label='Password'
-                    variant='outlined'
+                    id="Password"
+                    label="Password"
+                    variant="outlined"
                     fullWidth={true}
-                    color='secondary'
-                    type='password'
+                    color="secondary"
+                    type="password"
                     onChange={(e) => handlePasswordChange(e)}
                   />
                 </Box>
               </Grid>
             </Grid>
             {signInErr ? (
-              <Grid item container justify='center' alignItems='center'>
+              <Grid item container justify="center" alignItems="center">
                 <FormHelperText
                   error
-                  children='Could not sign user in'
-                  className={classes.signInErrText}></FormHelperText>
+                  children="Could not sign user in"
+                  className={classes.signInErrText}
+                ></FormHelperText>
               </Grid>
             ) : null}
             {/* BUTTON */}
 
-            <Grid container justify='center' alignItems='center' item>
+            <Grid container justify="center" alignItems="center" item>
               <Grid item xs={5}>
                 <Button
                   color={"primary"}
-                  variant='contained'
+                  variant="contained"
                   fullWidth={true}
-                  size='large'
+                  size="large"
                   disableRipple={true}
-                  type='submit'
-                  className={classes.signInButton}>
+                  type="submit"
+                  className={classes.signInButton}
+                >
                   Sign In
                 </Button>
               </Grid>
@@ -141,7 +146,7 @@ function SignIn(props) {
           <SignInModalFooter
             primaryText={"Don't have an account?"}
             secondaryText={"Sign Up"}
-            link='/signup'
+            link="/signup"
           />
         </Grid>
       </Paper>
